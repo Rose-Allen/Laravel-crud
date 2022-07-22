@@ -3,6 +3,12 @@
 @section("content")
 
     <a href="{{route("post.create")}}" class="btn btn-success  mb-3"><i class="fa-solid fa-plus "></i></a>
+    @if(session('success'))
+        <div class="alert alert-success" role="alert">
+            <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">x</button>
+            <h4>{{session('success')}}</h4>
+        </div>
+    @endif
         <table class="table table-dark table-striped table-hover ">
             <thead>
             <tr>
@@ -19,9 +25,9 @@
                 <td>{{$post->title}}</td>
                 <td>{{$post->content}}</td>
                 <td class="table-buttons">
-                    <a href="#" class="btn btn-success"><i class="fa-solid fa-eye "></i></a>
-                    <a href="#" class="btn btn-primary"><i class="fa-solid fa-pen "></i></a>
-                    <form action="#" method="post">
+                    <a href="{{route('post.show', $post)}}" class="btn btn-success"><i class="fa-solid fa-eye "></i></a>
+                    <a href="{{route('post.edit', $post)}}" class="btn btn-primary"><i class="fa-solid fa-pen "></i></a>
+                    <form action="{{route('post.destroy', $post->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">

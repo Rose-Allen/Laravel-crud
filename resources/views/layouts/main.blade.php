@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{{asset("css/app.css")}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+
     <title>@yield('title')</title>
 </head>
 <body>
@@ -33,6 +36,9 @@
         @yield("content")
 </div>
 
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{asset('js/app.js')}}"></script>
+<script src="resources/js/app.js"></script>
+<script src="resources/js/bootstrap.js"></script>
+
 </body>
 </html>
