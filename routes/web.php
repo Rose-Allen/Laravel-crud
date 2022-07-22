@@ -16,3 +16,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/home", function (){
+   return "home";
+});
+
+Route::get("/posts", "PostController@index")->name("post.index");
+Route::get("/posts/create", "PostController@create")->name("post.create");
+Route::post("/posts/store", "PostController@store")->name("post.store");
+
+
+Route::get("/home", "HomeController@index")->name("home.index");
+Route::get("/contact", "ContactController@index")->name("contact.index");
